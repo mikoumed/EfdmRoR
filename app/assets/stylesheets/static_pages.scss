@@ -1,0 +1,75 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* ============================================================================ */
+
+/* body */
+
+body{
+	padding-top: 60px;
+	background-color: #ecf0f5;
+	font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-weight: 400;
+}
+
+.center{
+	text-align: center;
+}
+
+/* ============================================================================ */
+
+/* header */
+
+.navbar-inverse{
+	background-color: #3c8dbc;
+	border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color : white;
+}
+
+.navbar-inverse .navbar-nav > li:hover {
+  background-color: #367fa9;
+ }
+.nav li {
+  display: inline;
+}
+
+.nav .navbar-nav {
+  position: absolute;
+
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+
+&:hover {
+    text-decoration: none;
+  		}
+}
+
+/* ============================================================================ */
+
+/* footer */
+
+.main-footer {
+  background: #fff;
+  padding: 15px;
+  color: #444;
+  border-top: 1px solid #d2d6de;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
