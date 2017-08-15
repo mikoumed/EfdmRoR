@@ -1,3 +1,76 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* sidebar */
+/* ============================================================================ */
+$state-danger-text: #eaeaea;
+/* Sign Up */
+
+.register-box-body {
+  background: #fff;
+  padding: 20px;
+  border-top: 0;
+  color: #666;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.register-box-msg {
+  margin: 0;
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
+
+
+.has-feedback {
+    position: relative;
+}
+
+.row {
+    max-width: 100px;
+    margin: auto;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+    @extend .has-feedback;
+    .form-control {
+        border-color: red;
+    }
+}
+
+/* ============================================================================ */
+// 
+// aside {
+//   section.user_info {
+//     margin-top: 20px;
+//   }
+//   section {
+//     padding: 10px 0;
+//     margin-top: 20px;
+//     &:first-child {
+//       border: 0;
+//       padding-top: 0;
+//     }
+//     span {
+//       display: block;
+//       margin-bottom: 3px;
+//       line-height: 1;
+//     }
+//     h1 {
+//       font-size: 1.4em;
+//       text-align: left;
+//       letter-spacing: -1px;
+//       margin-bottom: 3px;
+//       margin-top: 0px;
+//     }
+//   }
+// }

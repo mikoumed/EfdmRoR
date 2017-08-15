@@ -35,13 +35,13 @@ body{
 .navbar-inverse .navbar-nav > li:hover {
   background-color: #367fa9;
  }
+
 .nav li {
   display: inline;
 }
 
-.nav .navbar-nav {
-  position: absolute;
-
+.navbar .nav > li.dropdown.open > a {
+	background-color: #367fa9;
 }
 
 #logo {
@@ -58,6 +58,10 @@ body{
   		}
 }
 
+.dropdown.open {
+	background-color: #367fa9;
+}
+
 /* ============================================================================ */
 
 /* footer */
@@ -72,4 +76,24 @@ body{
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+/* ============================================================================ */
+
+/* debugger */
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }

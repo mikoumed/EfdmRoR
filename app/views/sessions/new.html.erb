@@ -1,0 +1,27 @@
+<% provide(:title, 'Log in') %>
+	<div class="register-box">
+  		<div class="register-box-body">
+
+    		<p class="register-box-msg">Sign in to start your session</p>
+
+			<%= form_for :session, url: login_path do |f| %>
+
+			<div class="form-group has-feedback">
+				<%= f.text_field :email, class:"form-control", placeholder:"Email" %>
+				<%= content_tag(:span, nil ,class: "glyphicon glyphicon-envelope form-control-feedback") %>
+				<!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
+			</div>
+			<div class="form-group has-feedback">
+				<%= f.text_field :password, class:"form-control", placeholder:"Password"%>
+				<%= content_tag(:span, nil ,class: "glyphicon glyphicon-lock form-control-feedback") %>
+				<!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
+			</div>
+
+			<div class="row">
+				<%= f.submit "Sign in", class: "btn btn-primary btn-block btn-flat" %>
+			</div>
+			<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    		<% end %>
+
+		</div>
+	</div>
