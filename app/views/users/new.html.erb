@@ -13,17 +13,17 @@
 				<!-- <span class="glyphicon glyphicon-user form-control-feedback"></span> -->
 			</div>
 			<div class="form-group has-feedback">
-				<%= f.text_field :email, class:"form-control", placeholder:"Email" %>
+				<%= f.email_field :email, class:"form-control", placeholder:"Email" %>
 				<%= content_tag(:span, nil ,class: "glyphicon glyphicon-envelope form-control-feedback") %>
 				<!-- <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
 			</div>
 			<div class="form-group has-feedback">
-				<%= f.text_field :password, class:"form-control", placeholder:"Password"%>
+				<%= f.password_field :password, class:"form-control", placeholder:"Password"%>
 				<%= content_tag(:span, nil ,class: "glyphicon glyphicon-lock form-control-feedback") %>
 				<!-- <span class="glyphicon glyphicon-lock form-control-feedback"></span> -->
 			</div>
 			<div class="form-group has-feedback">
-				<%= f.text_field :password_confirmation, class: "form-control", placeholder: "Retype password" %>
+				<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype password" %>
 				<%= content_tag(:span, nil ,class: "glyphicon glyphicon-log-in form-control-feedback") %>
 				<!-- <span class="glyphicon glyphicon-log-in form-control-feedback"></span> -->
 			</div>
