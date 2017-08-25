@@ -1,0 +1,11 @@
+<li id="event-<%= event.id %>">
+  <span class="user"><%= link_to event.user.name, event.user %></span>
+  <span class="content"><%= event.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(event.created_at) %> ago.
+    <% if current_user?(event.user) %>
+      <%= link_to "delete", event, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
