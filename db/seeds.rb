@@ -9,4 +9,5 @@ User.create!(name:  "mikou mohammed",
              email: "mikou@gmail.com",
              password:              "iab9mop",
              password_confirmation: "iab9mop",
+             activated: true,
              admin: true)

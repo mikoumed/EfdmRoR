@@ -21,9 +21,15 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            log_in_as @user
+            # if @user.activated?
+                log_in_as @user
+
             flash[:success] = "Welcome to EfdmRoR!"
-            redirect_to @user # equivalent to redirect_to user_url(@user)
+            redirect_to @user
+            # else
+            #     flash[:warning] = "Your account will be activated by the administrator soon"
+            #     redirect_to root_url # equivalent to redirect_to user_url(@user)
+            # end
         else
             render 'new'
         end
