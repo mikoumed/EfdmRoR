@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170825151507) do
 
-  create_table "events", force: :cascade do |t|
-    t.text     "content"
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.text     "content",    limit: 65535
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_events_on_user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",                      null: false
@@ -28,7 +28,8 @@ ActiveRecord::Schema.define(version: 20170825151507) do
     t.string   "password_digest"
     t.boolean  "admin",           default: false
     t.boolean  "activated",       default: false
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "events", "users"
 end
