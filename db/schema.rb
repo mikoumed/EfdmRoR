@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170825151507) do
 
-  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",    limit: 65535
     t.integer  "user_id"
     t.datetime "created_at",               null: false
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20170825151507) do
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
     t.datetime "created_at",                      null: false

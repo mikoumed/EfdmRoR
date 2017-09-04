@@ -15,3 +15,12 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+	$('.nav-trigger').click(function(e) {
+		console.log('js working');
+		 e.preventDefault();
+		$('.side-nav').toggleClass('visible');
+
+	});
+});
