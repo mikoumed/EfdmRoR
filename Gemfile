@@ -13,10 +13,12 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'mysql2'
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+gem 'jquery-datatables-rails'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.13'
+ gem 'byebug',  '9.0.6', platform: :mri
 end
 
 group :development do
@@ -26,6 +28,7 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
   gem 'faker',          '1.7.3'
 
+
 end
 
 group :test do
@@ -33,7 +36,7 @@ group :test do
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
   gem 'guard-minitest',           '2.4.4'
-  gem 'byebug',  '9.0.6', platform: :mri
+
 end
 
 group :production do

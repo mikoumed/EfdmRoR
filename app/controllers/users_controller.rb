@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @events = @user.events.paginate(page: params[:page])
+        @events = @user.events.paginate(page: params[:page], :per_page => 5)
     end
 
     def create
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        # @user = User.find(params[:id])
+        @user = User.find(params[:id])
         if @user.update_attributes(user_params)
             flash[:success] = "Profile updated"
             redirect_to @user
@@ -51,6 +51,7 @@ class UsersController < ApplicationController
         flash[:success] = "User deleted"
         redirect_to users_url
     end
+
 
 # ========================================================================================== #
 
@@ -66,7 +67,7 @@ class UsersController < ApplicationController
     # Confirms the correct user.
     def correct_user
         @user = User.find(params[:id])
-        redirect_to(root_url) unless current_user?(@user)
+        redirect_to root_url unless current_user?(@user)
     end
 
     # Confirms an admin user.

@@ -2,19 +2,45 @@
 
 <% if logged_in? %>
   <div class="row">
-    <aside class="col-md-4">
-      <section class="user_info">
+      <div class="col-md-6">
+          <div class="box box-default">
+              <div class="box-header with-border">
+                  <i class="fa fa-warning"></i>
+                  <h3 class="box-title">Events</h3>
+                    <div class="box-body">
+      <!-- <section class="user_info">
         <%= render 'shared/user_info' %>
-      </section>
-      <section class="event_form">
+      </section> -->
+      <!-- <section class="event_form">
         <%= render 'shared/event_form' %>
-      </section>
-    </aside>
-    <div class="col-md-8">
-      <h3>Events</h3>
-      <%= render 'shared/feed' %>
+      </section> -->
+
+      <!-- <h3>Events</h3> -->
+
+                            <%= render 'shared/feed' %>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+  <!-- <div class="main">
+      <div class="widget">
+          <div class="title">Number of views</div>
+          <div class="chart">
+
+          </div>
+      </div>
+      <div class="widget">
+          <div class="title">Number of likes</div>
+          <div class="chart"></div>
+      </div>
+      <div class="widget">
+          <div class="title">Number of comments</div>
+          <div class="chart"></div>
+      </div>
+  </div> -->
 <% else %>
 
     <div class="center">

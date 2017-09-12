@@ -10,33 +10,19 @@
 
       <%= render 'layouts/header' %>
 
-      <%= render 'layouts/sidenav' %>
-
       <div class="main-content">
-          <div class="title">
-              Titles
-          </div>
-          <!-- <div class="main">
-              <div class="widget">
-                  <div class="title">Number of views</div>
-                  <div class="chart"></div>
-              </div>
-              <div class="widget">
-                  <div class="title">Number of likes</div>
-                  <div class="chart"></div>
-              </div>
-              <div class="widget">
-                  <div class="title">Number of comments</div>
-                  <div class="chart"></div>
-              </div>
-          </div> -->
-            <% flash.each do |message_type, message| %>
-                <!-- <div class="alert alert-<%= message_type %>"><%= message %></div> -->
-                <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-            <% end %>
+           <%= render 'layouts/sidenav' %>
+           <div class="content">
+               <div class="title">
+                   <%= yield(:title) %>
+               </div>
+               <% flash.each do |message_type, message| %>
+                    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+               <% end %>
 
-                <%= yield %>
-            
+               <%= yield %>
+
+           </div>
       </div>
 
       <%= render 'layouts/footer' %>

@@ -39,5 +39,54 @@ textarea {
 }
 
 .btn {
-	width: 350px;
+	width: 100%;
 }
+
+.panel {
+	float:right;
+
+	a:hover{
+		text-decoration: none;
+	}
+}
+
+div.col-md-6 {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-top: 10px;
+	width: 100%;
+}
+
+.box .box-default {
+    border-top-color: #d2d6de;
+	position: relative;
+}
+.box {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.box-header {
+    color: #444;
+	padding: 10px;
+    display: block;
+    position: relative;
+}
+
+.box-header .box-title {
+    display: inline-block;
+    font-size: 18px;
+    margin: 0;
+    line-height: 1;
+	height:30px;
+}
+
+// .pagination {
+// 	float:right;
+// }

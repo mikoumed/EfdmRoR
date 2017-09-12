@@ -1,14 +1,14 @@
 class EventsController < ApplicationController
-	before_action :logged_in_user, only: [:create, :destroy, :edit, :update]
-	before_action :correct_user, only: [:create, :destroy, :edit, :update]
+	before_action :logged_in_user, only: [:create, :destroy]
+	before_action :correct_user, only: [:destroy, :edit, :update]
 
 	def create
 		@event = current_user.events.build(event_params)
-		if @event.save
+		if	@event.save
 			flash[:success] = "Event created"
-			redirect_to root_url
+			redirect_to home_path
 		else
-			@feed_items = [params]
+			@feed_items = Event.paginate(page: params[:page], :per_page => 10)	# @feed_items = []
 			render 'static_pages/home'
 		end
 	end
@@ -24,10 +24,10 @@ class EventsController < ApplicationController
 	end
 
 	def update
-		# @event = Event.find_by(id: params[:id])
+		@event = Event.find_by(id: params[:id])
 		if @event.update_attributes(event_params)
 			flash[:success] = "Post updated"
-			redirect_to root_url
+			redirect_to home_path
 		else
 			render 'edit'
 		end
@@ -41,6 +41,6 @@ class EventsController < ApplicationController
 
 	def correct_user
 	 	@event = current_user.events.find_by(id: params[:id])
-	 	redirect_to root_url if @event.nil?
+		redirect_to root_url if @event.nil?
    	end
 end

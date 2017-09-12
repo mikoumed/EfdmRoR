@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
     get 'sessions/new'
 
-    root 'sessions#new'
+    root 'static_pages#home'
 
     get 'users/new'
     get 'users/edit'

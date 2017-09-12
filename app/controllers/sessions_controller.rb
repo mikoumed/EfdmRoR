@@ -7,7 +7,8 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:session][:password])
             # if user.activated?
                 log_in_as user
-                redirect_back_or user
+                # redirect_back_or user
+                redirect_to home_path
             # else
             #     flash[:warning] = "Account not activated."
             #     redirect_to root_url
