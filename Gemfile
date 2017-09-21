@@ -14,7 +14,6 @@ gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'mysql2'
 gem 'font-awesome-rails'
-gem 'jquery-datatables-rails'
 
 group :development, :test do
   # gem 'sqlite3', '1.3.13'
