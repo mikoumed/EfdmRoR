@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+    resources :lines
+
+    post '/newHSline', to: 'lines#create'
+
     get 'sessions/new'
 
     root 'static_pages#home'

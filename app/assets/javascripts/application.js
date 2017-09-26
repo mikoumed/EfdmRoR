@@ -12,9 +12,23 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require dataTables/jquery.dataTables
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap
 //= require turbolinks
+//= require bootstrap-timepicker
+//= require select2
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+	$("table[role='datatable']").each(function(){
+		$(this).DataTable({
+				// processing :true,
+				serverSide :true,
+				ajax:$(this).data('url')
+		});
+	});
+})
 
 // $(document).ready(function() {
 // 	$('.nav-trigger').click(function(e) {
@@ -24,3 +38,7 @@
 //
 // 	});
 // });
+$(document).on('turbolinks:load',function(){
+	$('.timepicker').timepicker();
+	$('.select2').select2();
+});

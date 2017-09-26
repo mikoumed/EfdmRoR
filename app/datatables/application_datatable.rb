@@ -1,32 +1,36 @@
 class ApplicationDatatable
-	delegate :params, to: :@view
 
-	def initialize(view)
-		@view = view
-	end
+  delegate :params, to: :@view
+  delegate :link_to, to: :@view
 
-	def as_json(option = {}){
-		recordsTotal: count,
-		recordsFiltered: total_entries,
-		data: data
-		}
-	end
+  def initialize(view)
+    @view = view
+  end
 
-	private
+  def as_json(options = {})
+    {
+      recordsTotal: count,
+      recordsFiltered: total_entries,
+      data: data
+    }
+  end
 
-	def page
-		params[:start].to_i / per_page + 1
-	end
 
-	def per_page
-		params[:length].to_i > 0 ? params[:length].to_i : 10
-	end
+private
 
-	# def sort_column
-	# 	columns[params[:order]['0'][:column].to_i]
-	# end
-	#
-	# def sort_direction
-	# 	params[:order]['0'][:sort] == "desc" ? "desc" : "asc"
-	# end
+  def page
+    params[:start].to_i / per_page + 1
+  end
+
+  def per_page
+    params[:length].to_i > 0 ? params[:length].to_i : 10
+  end
+
+  def sort_column
+    columns[params[:order]['0'][:column].to_i]
+  end
+
+  def sort_direction
+    params[:order]['0'][:dir] == "desc" ? "desc" : "asc"
+  end
 end

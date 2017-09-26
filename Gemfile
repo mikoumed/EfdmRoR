@@ -6,7 +6,8 @@ gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.2.0'
 gem 'coffee-rails', '4.2.2'
-gem 'jquery-rails', '4.3.1'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
 gem 'bootstrap-sass', '3.3.7'
@@ -14,6 +15,16 @@ gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'mysql2'
 gem 'font-awesome-rails'
+gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
+gem 'jquery-datatables-rails', '~> 3.4.0'
+
+source 'https://rails-assets.org' do
+    gem 'rails-assets-bootstrap'
+    gem 'rails-assets-jquery'
+    gem 'rails-assets-tether'
+    # gem 'rails-assets-datatables'
+end
+gem "select2-rails"
 
 group :development, :test do
   # gem 'sqlite3', '1.3.13'

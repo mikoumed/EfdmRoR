@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 	@import "bootstrap-sprockets";
 	@import "bootstrap";
+	// @import "bootstrap-timepicker";
 
 /* ============================================================================ */
 
@@ -71,6 +72,7 @@ body {
 	padding-left: 10px;
 	height: 41px;
 	line-height: 41px;
+	text-decoration: none;
 
 &:hover {
   	background-color: #367fa9;
@@ -83,12 +85,16 @@ body {
 
 .navbar-top > li > a {
 	color: white;
-	&:hover, &:focus{
+	display: block;
+	height: 100%;
+	&:hover, &focus{
 		text-decoration: none;
+		background-color:transparent;
 	}
 }
-
-
+.dropdown-toggle:active, .open .dropdown-toggle {
+	   text-decoration: none;
+   }
 .nav-trigger {
 	position: relative;
 	float: right;
@@ -163,6 +169,8 @@ body {
 	color: #fff;
 	display: block;
 	text-decoration: none;
+	&:hover{
+	background-color:transparent;}
 }
 .side-nav ul li i {
 	color: #0497df;
@@ -193,7 +201,7 @@ body {
 	padding: 10px 20px;
 	font-weight: 700;
 	color: #333;
-	font-size: 18px;
+	font-size: 20px;
 	height: 41px;
 	line-height: 100%;
 }
