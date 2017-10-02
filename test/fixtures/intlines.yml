@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lineName: MyString
+  ticketN: MyString
+  remHS: MyText
+  userHS: MyString
+  remOK: MyText
+  userOK: MyString
+  duration: 2017-09-27 19:39:53
+  panel: MyString
+  user: one
+
+two:
+  lineName: MyString
+  ticketN: MyString
+  remHS: MyText
+  userHS: MyString
+  remOK: MyText
+  userOK: MyString
+  duration: 2017-09-27 19:39:53
+  panel: MyString
+  user: two

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-    resources :lines
+    resources :intlines
 
-    post '/newHSline', to: 'lines#create'
+    post '/newHSline', to: 'intlines#create'
 
     get 'sessions/new'
 

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LineTest < ActiveSupport::TestCase
+class IntlineTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

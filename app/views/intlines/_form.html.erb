@@ -1,0 +1,62 @@
+<%= form_for(@intline) do |f| %>
+  <% if @intline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(intline.errors.count, "error") %> prohibited this intline from being saved:</h2>
+
+      <ul>
+      <% intline.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lineName %>
+    <%= f.text_field :lineName %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ticketN %>
+    <%= f.text_field :ticketN %>
+  </div>
+
+  <div class="field">
+    <%= f.label :remHS %>
+    <%= f.text_area :remHS %>
+  </div>
+
+  <div class="field">
+    <%= f.label :userHS %>
+    <%= f.text_field :userHS %>
+  </div>
+
+  <div class="field">
+    <%= f.label :remOK %>
+    <%= f.text_area :remOK %>
+  </div>
+
+  <div class="field">
+    <%= f.label :userOK %>
+    <%= f.text_field :userOK %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.time_select :duration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :panel %>
+    <%= f.text_field :panel %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
