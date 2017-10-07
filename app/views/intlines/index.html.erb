@@ -1,21 +1,6 @@
 <% provide(:title, "Lines") %>
 
-
-<%= content_tag :table, role: :datatable, data: { url: intlines_path(format: :json)} do %>
-  <thead>
-    <tr>
-      <th>Created</th>
-      <th>Line Name</th>
-      <th>Ticket Number</th>
-      <th>Note HS</th>
-      <th>User</th>
-      <th>Panel</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  </tbody>
-<% end %>
+<%= render "shared/tableIntline" %>
 
 <br>
 

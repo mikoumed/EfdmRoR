@@ -2,6 +2,13 @@ class EventsController < ApplicationController
 	before_action :logged_in_user, only: [:create, :destroy]
 	before_action :correct_user, only: [:destroy, :edit, :update]
 
+	def index
+		respond_to do |format|
+		format.html
+		format.json { render json: EventsDatatable.new(view_context) }
+	  end
+	end
+
 	def create
 		@event = current_user.events.build(event_params)
 		if	@event.save

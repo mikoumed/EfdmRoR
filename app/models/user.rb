@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    # belongs_to :teams
     has_many :events
     has_many :intlines
     before_save { email.downcase! }
