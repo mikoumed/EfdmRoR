@@ -3,7 +3,8 @@ class TeamsController < ApplicationController
 
   # GET /teams
   def index
-    
+    @teams = Team.all
+    @users = User.all
   end
 
   # GET /teams/1
@@ -22,6 +23,11 @@ class TeamsController < ApplicationController
   # POST /teams
   def create
     @team = Team.new(team_params)
+    if @team.save
+        redirect_to @team
+    else
+        render 'new'
+    end
   end
 
   # PATCH/PUT /teams/1

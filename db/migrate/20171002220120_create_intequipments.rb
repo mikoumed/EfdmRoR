@@ -1,7 +1,7 @@
 class CreateIntequipments < ActiveRecord::Migration[5.0]
   def change
     create_table :intequipments do |t|
-        
+
         t.string :equipmentName
         t.string :ticketN
         t.text :remHS

@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :email
       t.string :teamName
+      t.references :team, foreign_key: true
 
       t.timestamps
     end

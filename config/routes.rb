@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :intequipments
-  resources :teams
+    resources :intequipments
+    resources :teams
     resources :intlines
 
     post '/newHSline', to: 'intlines#create'

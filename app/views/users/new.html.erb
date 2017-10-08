@@ -23,6 +23,9 @@
 				<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Retype password" %>
 				<%= content_tag(:span, nil ,class: "glyphicon glyphicon-log-in form-control-feedback") %>
 			</div>
+			<div class="form-group has-feedback">
+				<%= f.collection_select :team_id, Team.all, :id, :name, {:prompt => ' Select Team'}%>
+			</div>
 			<div class="row">
 				<%= f.submit "Register", class: "btn btn-primary btn-block btn-flat" %>
 			</div>

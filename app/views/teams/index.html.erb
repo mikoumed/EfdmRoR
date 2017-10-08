@@ -1,19 +1,16 @@
-<% provide(:title, "Events") %>
+<% provide(:title,'Team') %>
 
-
-<%= content_tag :table, role: :datatable, data: { url: events_path(format: :json)} do %>
-  <thead>
-    <tr>
-      <th>Created</th>
-      <th>Object</th>
-      <th>User</th>
-      <th>Content</th>
-    </tr>
-  </thead>
-
-  <tbody>
-  </tbody>
-<% end %>
-<br>
-
-<%= link_to 'New Team', new_team_path %>
+<table>
+    <thead>
+        <th>Team</th>
+        <th>Users</th>
+    </thead>
+    <tbody>
+        <% @teams.each do |team| %>
+        <tr>
+            <td><%= team.name %></td>
+            <td><%= @users.where("team_id = '#{ team.id }'").all.map(&:name).join(" | ") %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

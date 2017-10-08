@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @events = @user.events.paginate(page: params[:page], :per_page => 5)
+        # @events = @user.events.paginate(page: params[:page], :per_page => 5)
     end
 
     def create
@@ -59,7 +59,7 @@ class UsersController < ApplicationController
 
 # permit only the 4 attributes
     def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :team_id)
     end
 
 # Before filters

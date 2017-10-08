@@ -64,12 +64,14 @@ ActiveRecord::Schema.define(version: 20171002220120) do
     t.string   "name"
     t.string   "email"
     t.string   "teamName"
+    t.integer  "team_id"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.string   "password_digest"
     t.boolean  "admin",           default: false
     t.boolean  "activated",       default: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
   add_foreign_key "events", "users"
