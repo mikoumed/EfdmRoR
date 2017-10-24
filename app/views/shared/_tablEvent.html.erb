@@ -1,4 +1,4 @@
-<%= content_tag :table, role: :datatable, data: { url: events_path(format: :json)} do %>
+<table id='async_dataEvent' class="table-striped">
   <thead>
     <tr>
       <th>Created</th>
@@ -10,6 +10,19 @@
   </thead>
 
   <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.created_at %></td>
+          <td><%= event.object %></td>
+          <td><%= event.user.name %></td>
+          <td><%= event.content %></td>
+          <td>
+              <%= link_to 'Show', event %>|
+              <%= link_to 'Edit', edit_event_path(event) %>|
+              <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
   </tbody>
-<% end %>
-<br>
+
+</table>

@@ -12,7 +12,6 @@ delegate :edit_intline_path, to: :@view
 				column << intline.userHS
 
 				links = []
-				links << link_to('show', intline)
 				links << link_to('Edit', edit_intline_path(intline))
 				links << link_to('Destroy',intline, method: :delete, data: { confirm: 'Are you sure?' })
 				column << links.join(' | ')
@@ -20,8 +19,12 @@ delegate :edit_intline_path, to: :@view
 		end
 	end
 
+	def users_data
+		Intline.where(team_id: @user.team_id)
+	end
+
 	def count
-		Intline.count
+		users_data.count
 	end
 
 	def total_entries
@@ -37,7 +40,7 @@ delegate :edit_intline_path, to: :@view
 		columns.each do |term|
 			search_string << "#{term} like :search"
 		end
-		intlines = Intline.order("#{sort_column} #{sort_direction}")
+		intlines = users_data.order("#{sort_column} #{sort_direction}")
 		intlines = intlines.page(page).per_page(per_page)
 		intlines = intlines.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
 	end

@@ -1,5 +1,20 @@
 <% provide(:title, "Events") %>
 
-<%= render "shared/tablEvent" %>
+<%= content_tag :table, class: "table-striped", role: :datatable, data: { url: events_path(format: :json)} do %>
+  <thead>
+    <tr>
+      <th>Created</th>
+      <th>Object</th>
+      <th>User</th>
+      <th>Content</th>
+	  <th>Panel</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  </tbody>
+<% end %>
+<br>
+
 
 <%= link_to 'New Event', new_event_path %>

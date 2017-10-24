@@ -5,11 +5,12 @@ before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
 def index
     respond_to do |format|
     format.html
-    format.json { render json: IntlinesDatatable.new(view_context) }
+    format.json { render json: IntlinesDatatable.new(view_context, current_user) }
   end
 end
 
 def new
+    @lines = Line.where("team_id = #{current_user.team_id}")
     if logged_in?
         @intline = current_user.intlines.build
     else
@@ -24,16 +25,16 @@ def destroy
 end
 
 def edit
+    @lines = Line.where("team_id = #{current_user.team_id}")
     @intline = Intline.find_by(id: params[:id])
 end
 
 def create
     @intline = current_user.intlines.build(intline_params)
-
+    @intline.update_attributes(userHS: current_user.name, team_id: current_user.team_id) #not the final implemetation
     if @intline.save
-        @intline.update_attributes(userHS: current_user.name)
         flash[:success] = "Report Line created"
-        redirect_to home_path
+        redirect_to intlines_path
     else
         render 'static_pages/home'
     end
@@ -50,7 +51,7 @@ def update
 end
 
 private
-  # Use callbacks to share common setup or constraints between actions.
+
   def set_intline
     @intline = Intline.find(params[:id])
   end

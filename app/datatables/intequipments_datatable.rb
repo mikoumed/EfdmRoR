@@ -1,5 +1,6 @@
 class IntequipmentsDatatable < ApplicationDatatable
 delegate :edit_intequipment_path, to: :@view
+
 	private
 
 	def data
@@ -20,8 +21,12 @@ delegate :edit_intequipment_path, to: :@view
 		end
 	end
 
+	def users_data
+		Intequipment.where(team_id: @user.team_id)
+	end
+
 	def count
-		Intequipment.count
+		users_data.count
 	end
 
 	def total_entries
@@ -37,7 +42,7 @@ delegate :edit_intequipment_path, to: :@view
 		columns.each do |term|
 			search_string << "#{term} like :search"
 		end
-		intequipments = Intequipment.order("#{sort_column} #{sort_direction}")
+		intequipments = users_data.order("#{sort_column} #{sort_direction}")
 		intequipments = intequipments.page(page).per_page(per_page)
 		intequipments = intequipments.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
 	end

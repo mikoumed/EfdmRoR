@@ -1,4 +1,4 @@
-<%= content_tag :table, role: :datatable, data: { url: intlines_path(format: :json)} do %>
+<table id='async_dataIntline' class="table-striped">
   <thead>
     <tr>
       <th>Created</th>
@@ -11,5 +11,19 @@
   </thead>
 
   <tbody>
+      <% @intlines.each do |intline| %>
+        <tr>
+          <td><%= intline.created_at %></td>
+          <td><%= intline.lineName %></td>
+          <td><%= intline.ticketN %></td>
+          <td><%= intline.remHS %></td>
+          <td><%= intline.user.name %></td>
+          <td>
+              <%= link_to 'Show', intline %>|
+              <%= link_to 'Edit', edit_intline_path(intline) %>|
+              <%= link_to 'Destroy', intline, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
   </tbody>
-<% end %>
+</table>

@@ -5,12 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Team.create!(name: "RADAR")
+Team.create!(name: "COM")
+
 User.create!(name:  "mikou mohammed",
              email: "mikou@gmail.com",
              password:              "iab9mop",
              password_confirmation: "iab9mop",
              activated: true,
+             team_id: 1,
              admin: true)
+
 
 
 # users = User.order(:created_at).take(6)

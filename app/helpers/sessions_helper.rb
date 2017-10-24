@@ -5,6 +5,11 @@ module SessionsHelper
 		session[:user_id] = user.id
 	end
 
+# # Returns the team according to team_id.
+# 	def current_team
+# 		Team.find_by(id: params[:material][:team_id])
+# 	end
+
 # Returns the current logged-in user (if any).
 	def current_user
 		@current_user ||= User.find_by(id: session[:user_id])

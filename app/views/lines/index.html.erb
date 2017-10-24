@@ -1,0 +1,29 @@
+<% provide(:title, "Lines") %>
+
+<table id='async_datatable' class="table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Panel</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lines.each do |line| %>
+      <tr>
+        <td><%= line.name %></td>
+        <td><%= line.team.name %></td>
+        <td>
+            <%= link_to 'Show', line %>|
+            <%= link_to 'Edit', edit_line_path(line) %>|
+            <%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line', new_line_path %>

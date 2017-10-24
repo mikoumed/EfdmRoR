@@ -1,7 +1,20 @@
-<% provide(:title, "Equipments") %>
+<% provide(:title, "IntEquipments") %>
 
+<%= content_tag :table, role: :datatable, data: { url: intequipments_path(format: :json)} do %>
+  <thead>
+    <tr>
+      <th>Created</th>
+      <th>Equipment Name</th>
+      <th>Ticket Number</th>
+      <th>Note HS</th>
+      <th>User</th>
+      <th>Panel</th>
+    </tr>
+  </thead>
 
-<%= render "shared/tableIntequipment" %>
+  <tbody>
+  </tbody>
+<% end %>
 
 <br>
 

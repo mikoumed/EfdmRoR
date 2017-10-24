@@ -1,8 +1,10 @@
 class User < ApplicationRecord
-    belongs_to :teams, optional: true
+
+    belongs_to :teams, optional:true
     has_many :events
     has_many :intlines
     has_many :intequipments
+
     validates :team_id, presence: true
     before_save { email.downcase! }
     validates :name, presence: true, length: { maximum: 50 }

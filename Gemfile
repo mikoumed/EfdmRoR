@@ -14,7 +14,7 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'will_paginate',           '3.1.5'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'mysql2'
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '4.7.0.2'
 gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 

@@ -1,5 +1,5 @@
 class EventsDatatable < ApplicationDatatable
-
+delegate :edit_event_path, to: :@view
 	private
 
 	def data
@@ -7,21 +7,25 @@ class EventsDatatable < ApplicationDatatable
 			[].tap do |column|
 				column << event.created_at.strftime("%d-%-m-%y-%-H:%M")
 				column << event.object
-				column << event.content
 				column << event.user.name
+				column << event.content
+
 
 				links = []
-				links << link_to('show', intline)
-				links << link_to('Edit', edit_intline_path(intline))
-				links << link_to('Destroy',intline, method: :delete, data: { confirm: 'Are you sure?' })
+				links << link_to('Edit', edit_event_path(event))
+				links << link_to('Destroy',event, method: :delete, data: { confirm: 'Are you sure?' })
 				column << links.join(' | ')
 
 			end
 		end
 	end
 
+	def users_data
+		Event.where(team_id: @user.team_id)
+	end
+
 	def count
-		Event.count
+		users_data.count
 	end
 
 	def total_entries
@@ -37,13 +41,13 @@ class EventsDatatable < ApplicationDatatable
 		columns.each do |term|
 			search_string << "#{term} like :search"
 		end
-		events = Event.order("#{sort_column} #{sort_direction}")
+		events = users_data.order("#{sort_column} #{sort_direction}")
 		events = events.page(page).per_page(per_page)
 		events = events.where(search_string.join(' or '), search: "%#{params[:search][:value]}%")
 	end
 
 	def columns
-		%w(Created_at object content user)
+		%w(Created_at object content userName)
 	end
 
 	def sort_column

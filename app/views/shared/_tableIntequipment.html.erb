@@ -1,4 +1,4 @@
-<%= content_tag :table, role: :datatable, data: { url: intequipments_path(format: :json)} do %>
+<table id='async_dataIntequipment' class="table-striped">
   <thead>
     <tr>
       <th>Created</th>
@@ -11,5 +11,19 @@
   </thead>
 
   <tbody>
+      <% @intequipments.each do |intequipment| %>
+        <tr>
+          <td><%= intequipment.created_at %></td>
+          <td><%= intequipment.equipmentName %></td>
+          <td><%= intequipment.ticketN %></td>
+          <td><%= intequipment.remHS %></td>
+          <td><%= intequipment.user.name %></td>
+          <td>
+              <%= link_to 'Show', intequipment %>|
+              <%= link_to 'Edit', edit_intequipment_path(intequipment) %>|
+              <%= link_to 'Destroy', intequipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
   </tbody>
-<% end %>
+</table>

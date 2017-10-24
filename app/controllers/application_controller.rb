@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       redirect_to login_url
     end
   end
+
+  # def identify_team
+  #     @team = current_user.team_id
+  # end
 end

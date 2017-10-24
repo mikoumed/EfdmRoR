@@ -11,6 +11,7 @@ class CreateIntequipments < ActiveRecord::Migration[5.0]
         t.time :duration
         t.string :panel
         t.references :user, foreign_key: true
+        t.references :team, foreign_key: true
 
       t.timestamps
     end

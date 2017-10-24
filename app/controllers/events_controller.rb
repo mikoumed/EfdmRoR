@@ -1,28 +1,33 @@
 class EventsController < ApplicationController
-	before_action :logged_in_user, only: [:create, :destroy]
-	before_action :correct_user, only: [:destroy, :edit, :update]
+	# before_action :logged_in_user, only: [:create, :destroy]
+	# before_action :correct_user, only: [:destroy, :edit, :update]
 
 	def index
 		respond_to do |format|
 		format.html
-		format.json { render json: EventsDatatable.new(view_context) }
+		format.json { render json: EventsDatatable.new(view_context, current_user) }
 	  end
+	end
+
+	def new
+		@lines = Line.where("team_id = #{current_user.team_id}")
+		@event = current_user.events.build
 	end
 
 	def create
 		@event = current_user.events.build(event_params)
+		@event.update_attributes(team_id: current_user.team_id)
 		if	@event.save
 			flash[:success] = "Event created"
 			redirect_to home_path
 		else
-			@feed_items = Event.paginate(page: params[:page], :per_page => 10)	# @feed_items = []
 			render 'static_pages/home'
 		end
 	end
 
 	def destroy
-		@event.destroy
-    	flash[:success] = "Micropost deleted"
+		Event.find(params[:id]).destroy
+    	flash[:success] = "Event deleted"
     	redirect_to request.referrer || root_url
 	end
 
@@ -43,7 +48,7 @@ class EventsController < ApplicationController
 	private
 
 	def event_params
-		params.require(:event).permit(:content)
+		params.require(:event).permit(:created_at, :content, :object, :userName)
 	end
 
 	def correct_user

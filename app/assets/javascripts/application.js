@@ -21,14 +21,27 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
-	$("table[role='datatable']").each(function(){
+	$("[role='datatable']").each(function(){
 		$(this).DataTable({
-				// processing :true,
+				processing :true,
 				serverSide :true,
+        		// bJQueryUI :true,
+				deferRender :true,
 				ajax:$(this).data('url')
-		});
-	});
+		})
+	})
+	$('.timepicker').timepicker();
+	$('.select2').select2();
 })
+$(document).on('turbolinks:load', function(){
+		$('#async_dataEvent').DataTable();
+		$('#async_dataIntline').DataTable();
+		$('#async_dataIntequipment').DataTable();
+});
+
+$(document).on('turbolinks:load', function(){
+    $('#async_datatable').DataTable();
+});
 
 // $(document).ready(function() {
 // 	$('.nav-trigger').click(function(e) {
@@ -38,7 +51,7 @@ $(document).on('turbolinks:load', function(){
 //
 // 	});
 // });
-$(document).on('turbolinks:load',function(){
-	$('.timepicker').timepicker();
-	$('.select2').select2();
-});
+// $(document).on('turbolinks:load',function(){
+// 	$('.timepicker').timepicker();
+// 	$('.select2').select2();
+// });

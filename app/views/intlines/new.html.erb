@@ -6,7 +6,7 @@
   <div class="box box-primary">
 
 		<%= form_for @intline, url: newHSline_path do |f| %>
-		<!-- <%= render 'shared/error_messages', object: f.object %> -->
+		<%= render 'shared/error_messages', object: f.object %>
 		  <div class="box-body">
 			  <div class="bootstrap-timepicker">
 					<div class="form-group">
@@ -22,7 +22,8 @@
 
 			  	<div class="form-group">
 					<label>Line</label>
-					<%= f.select :lineName, ["Line1", "Line2","Line3"] , {include_blank: true}, class:"form-control select2" %>
+                    <!-- <%= f.collection_select :id, Line.all, :id, :name, {:prompt => ' Select Line'}%> -->
+					<%= f.select :lineName, @lines.all.map(&:name) , {include_blank: true}, class:"form-control select2" %>
 			  	</div>
 
 				<div class="form-group">

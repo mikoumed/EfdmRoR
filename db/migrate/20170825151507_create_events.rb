@@ -3,9 +3,10 @@ class CreateEvents < ActiveRecord::Migration[5.0]
     create_table :events do |t|
       t.text :content
       t.string :object
-      t.string :user
+      t.string :userName
       t.string :panel
       t.references :user, foreign_key: true
+      t.references :team, foreign_key: true
 
       t.timestamps
     end

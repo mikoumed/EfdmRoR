@@ -1,7 +1,20 @@
-<% provide(:title, "Lines") %>
+<% provide(:title, "IntLines") %>
 
-<%= render "shared/tableIntline" %>
+<%= content_tag :table, class: "table-striped", role: :datatable, data: { url: intlines_path(format: :json)} do %>
+  <thead>
+    <tr>
+      <th>Created</th>
+      <th>Line Name</th>
+      <th>Ticket Number</th>
+      <th>Note HS</th>
+      <th>User</th>
+      <th>Panel</th>
+    </tr>
+  </thead>
 
+  <tbody>
+  </tbody>
+<% end %>
 <br>
 
 <%= link_to 'New Line', new_intline_path %>
