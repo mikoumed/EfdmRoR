@@ -2,11 +2,9 @@ class StaticPagesController < ApplicationController
 
     def home
         if logged_in?
-
-            @events = Event.all
-            @intlines = Intline.all
-            @intequipments = Intequipment.all
-            # @feed_items = Event.paginate(page: params[:page], :per_page => 10)
+            @events = Event.where(team_id: current_user.team_id)
+            @intlines = Intline.where(team_id: current_user.team_id)
+            @intequipments = Intequipment.where(team_id: current_user.team_id)
         else
             redirect_to login_path
         end
