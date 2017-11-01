@@ -12,11 +12,12 @@
  *
 
  *= require_self
+ *= require_tree .
  *= require font-awesome
- *= require bootstrap
+ *= require fullcalendar
  *= require bootstrap-timepicker
+ *= require daterangepicker-bs3
  *= require select2
  *= require select2-bootstrap
- *= require_tree .
  *= require dataTables/jquery.dataTables
  */

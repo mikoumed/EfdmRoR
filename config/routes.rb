@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :teams
     resources :events
     resources :intlines
+    resources :issues
 
     post '/newEvent', to: 'events#create'
 

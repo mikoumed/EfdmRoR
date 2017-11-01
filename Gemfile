@@ -17,6 +17,10 @@ gem 'mysql2'
 gem 'font-awesome-rails', '4.7.0.2'
 gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
+gem 'simple_form'
+gem 'bootstrap-daterangepicker-rails'
 
 source 'https://rails-assets.org' do
     gem 'rails-assets-bootstrap'
