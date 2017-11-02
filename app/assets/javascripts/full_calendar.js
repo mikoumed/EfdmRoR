@@ -1,11 +1,40 @@
+
 var initialize_calendar;
 initialize_calendar = function(){
 	$('.calendar').each(function(){
+
+    	isClicked = false;
 		var calendar = $(this)
 		calendar.fullCalendar({
 			height: 600,
 
-			
+			dayClick: function(date, jsEvent, view) {
+			    if(isClicked){
+			        isDblClicked = true;
+			        isClicked = false;
+			    }
+			    else{
+			        isClicked = true;
+			    }
+			    setTimeout(function(){
+			        isClicked = false;
+			    }, 250);
+			 },
+
+			 	select: function(start, end){
+			    if(isClicked){
+					$.getScript('/issues/new', function() {
+						$('#issue_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"));
+						date_range_picker();
+						$('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
+						$('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
+					})
+				}
+				else
+					$(this).fullCalendar('unselect');
+			        return;
+			},
+
 			themeSystem: String, default: 'bootstrap3',
 
 			header: {
@@ -19,15 +48,7 @@ initialize_calendar = function(){
 			eventLimit: true,
 			events: '/issues.json',
 
-			select: function(start, end){
-				$.getScript('/issues/new', function() {
-					$('#issue_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"));
-					date_range_picker();
-					$('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
-					$('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
-				});
-				calendar.fullCalendar('unselect');
-			},
+
 
 			eventDrop: function(issue, delta, revertFunc){
 				issue_data = {
