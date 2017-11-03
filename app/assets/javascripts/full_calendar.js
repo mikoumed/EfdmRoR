@@ -2,8 +2,7 @@
 var initialize_calendar;
 initialize_calendar = function(){
 	$('.calendar').each(function(){
-
-    	isClicked = false;
+		var isClicked = false
 		var calendar = $(this)
 		calendar.fullCalendar({
 			height: 600,
@@ -20,22 +19,18 @@ initialize_calendar = function(){
 			        isClicked = false;
 			    }, 250);
 			 },
-
-			 	select: function(start, end){
+			select: function(start, end, jsEvent){
 			    if(isClicked){
-					$.getScript('/issues/new', function() {
-						$('#issue_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"));
-						date_range_picker();
-						$('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
-						$('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
-					})
-				}
-				else
-					$(this).fullCalendar('unselect');
+			        $(this).fullCalendar('unselect');
 			        return;
+			    }
+				$.getScript('/issues/new', function() {
+					$('#issue_date_range').val(moment(start).format("MM/DD/YYYY HH:mm") + ' - ' + moment(end).format("MM/DD/YYYY HH:mm"));
+					date_range_picker();
+					$('.start_hidden').val(moment(start).format('YYYY-MM-DD HH:mm'));
+					$('.end_hidden').val(moment(end).format('YYYY-MM-DD HH:mm'));
+				})
 			},
-
-			themeSystem: String, default: 'bootstrap3',
 
 			header: {
 				left: 'prev, next, today',
@@ -47,8 +42,6 @@ initialize_calendar = function(){
 			editable: true,
 			eventLimit: true,
 			events: '/issues.json',
-
-
 
 			eventDrop: function(issue, delta, revertFunc){
 				issue_data = {
