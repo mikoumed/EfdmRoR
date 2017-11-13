@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028131031) do
+ActiveRecord::Schema.define(version: 20171111091915) do
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",    limit: 65535
@@ -33,11 +33,13 @@ ActiveRecord::Schema.define(version: 20171028131031) do
     t.text     "remOK",         limit: 65535
     t.string   "userOK"
     t.time     "duration"
+    t.datetime "closed_at"
     t.string   "panel"
     t.integer  "user_id"
     t.integer  "team_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+    t.boolean  "closed",                      default: false
     t.index ["team_id"], name: "index_intequipments_on_team_id", using: :btree
     t.index ["user_id"], name: "index_intequipments_on_user_id", using: :btree
   end
@@ -50,11 +52,13 @@ ActiveRecord::Schema.define(version: 20171028131031) do
     t.text     "remOK",      limit: 65535
     t.string   "userOK"
     t.time     "duration"
+    t.datetime "closed_at"
     t.string   "panel"
     t.integer  "user_id"
     t.integer  "team_id"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "closed",                   default: false
     t.index ["team_id"], name: "index_intlines_on_team_id", using: :btree
     t.index ["user_id"], name: "index_intlines_on_user_id", using: :btree
   end
@@ -64,8 +68,10 @@ ActiveRecord::Schema.define(version: 20171028131031) do
     t.datetime "start"
     t.datetime "end"
     t.string   "color"
+    t.integer  "team_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_issues_on_team_id", using: :btree
   end
 
   create_table "lines", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -109,6 +115,7 @@ ActiveRecord::Schema.define(version: 20171028131031) do
   add_foreign_key "intequipments", "users"
   add_foreign_key "intlines", "teams"
   add_foreign_key "intlines", "users"
+  add_foreign_key "issues", "teams"
   add_foreign_key "lines", "teams"
   add_foreign_key "materials", "teams"
   add_foreign_key "users", "teams"

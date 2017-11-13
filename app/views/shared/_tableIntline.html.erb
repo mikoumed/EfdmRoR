@@ -1,11 +1,11 @@
 <table id='async_dataIntline' class="table-striped">
   <thead>
     <tr>
-      <th>Created</th>
+      <th>Opened</th>
       <th>Line Name</th>
       <th>Ticket Number</th>
       <th>Note HS</th>
-      <th>User</th>
+      <th>Added by</th>
       <th>Panel</th>
     </tr>
   </thead>
@@ -13,15 +13,15 @@
   <tbody>
       <% @intlines.each do |intline| %>
         <tr>
-          <td><%= intline.created_at %></td>
+          <td><%= intline.created_at.strftime("[%d-%m-%y][%H:%M]") %></td>
           <td><%= intline.lineName %></td>
           <td><%= intline.ticketN %></td>
           <td><%= intline.remHS %></td>
           <td><%= intline.user.name %></td>
           <td>
-              <%= link_to 'Show', intline %>|
-              <%= link_to 'Edit', edit_intline_path(intline) %>|
-              <%= link_to 'Destroy', intline, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to('', edit_intline_path(intline), class:'fa fa-pencil-square-o') %>|
+              <%= link_to('', restore_intline_path(intline), class:'fa fa-check') %> |
+              <%= link_to('', intline, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-trash-o') %>
           </td>
         </tr>
       <% end %>

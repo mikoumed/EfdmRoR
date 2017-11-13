@@ -21,6 +21,7 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'simple_form'
 gem 'bootstrap-daterangepicker-rails'
+gem 'bootstrap3-datetimepicker-rails'
 
 source 'https://rails-assets.org' do
     gem 'rails-assets-bootstrap'

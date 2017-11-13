@@ -1,6 +1,7 @@
 class IntlinesController < ApplicationController
 before_action :set_intline, only: [:show, :edit, :update, :destroy]
 before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
+before_action :correct_user, only: [:edit, :update, :destroy]
 
 def index
     respond_to do |format|
@@ -10,7 +11,7 @@ def index
 end
 
 def new
-    @lines = Line.where("team_id = #{current_user.team_id}")
+    @lines = current_team.lines
     if logged_in?
         @intline = current_user.intlines.build
     else
@@ -25,8 +26,22 @@ def destroy
 end
 
 def edit
-    @lines = Line.where("team_id = #{current_user.team_id}")
     @intline = Intline.find_by(id: params[:id])
+end
+
+def restore
+    @intline = Intline.find_by(id: params[:id])
+end
+
+def close
+    @intline = Intline.find_by(id: params[:id])
+    if @intline.update_attributes(intline_params)
+        @intline.update_attributes(closed: true, userOK: current_user.name)
+        flash[:success] = "Report line closed"
+        redirect_to intlines_path
+    else
+        render 'restore'
+    end
 end
 
 def create
@@ -34,7 +49,7 @@ def create
     @intline.update_attributes(userHS: current_user.name, team_id: current_user.team_id) #not the final implemetation
     if @intline.save
         flash[:success] = "Report Line created"
-        redirect_to intlines_path
+        redirect_to root_path
     else
         render 'static_pages/home'
     end
@@ -56,8 +71,16 @@ private
     @intline = Intline.find(params[:id])
   end
 
+  def correct_user
+      @intline = current_user.intlines.find_by(id: params[:id])
+      if @intline.nil?
+          redirect_to root_path
+          flash[:danger] = "You don't have rights"
+      end
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def intline_params
-    params.require(:intline).permit(:created_at, :lineName, :ticketN, :remHS)
+    params.require(:intline).permit(:created_at, :lineName, :ticketN, :remHS, :remOK, :closed_at)
   end
 end

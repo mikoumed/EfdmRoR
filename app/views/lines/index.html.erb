@@ -1,5 +1,7 @@
 <% provide(:title, "Lines") %>
-
+<div style="padding: 8px;width: 200px;float:right;z-index:1;">
+    <%= link_to 'New Line', new_line_path, class: "btn btn-success btn-md" %>
+</div>
 <table id='async_datatable' class="table-striped">
   <thead>
     <tr>
@@ -15,9 +17,8 @@
         <td><%= line.name %></td>
         <td><%= line.team.name %></td>
         <td>
-            <%= link_to 'Show', line %>|
-            <%= link_to 'Edit', edit_line_path(line) %>|
-            <%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '', edit_line_path(line), class:'fa fa-pencil-square-o'  %> | 
+            <%= link_to '', line, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-trash-o'  %>
         </td>
       </tr>
     <% end %>
@@ -25,5 +26,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Line', new_line_path %>

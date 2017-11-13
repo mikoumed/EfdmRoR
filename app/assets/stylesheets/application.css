@@ -17,6 +17,7 @@
  *= require fullcalendar
  *= require bootstrap-timepicker
  *= require daterangepicker-bs3
+ *= require bootstrap-datetimepicker
  *= require select2
  *= require select2-bootstrap
  *= require dataTables/jquery.dataTables

@@ -22,7 +22,7 @@
 			  	<div class="form-group">
 					<label>Line</label>
                     <!-- <%= f.collection_select :id, Line.all, :id, :name, {:prompt => ' Select Line'}%> -->
-					<%= f.select :equipmentName, @materials.map(&:name) , {include_blank: true}, class:"form-control select2" %>
+					<%= f.text_field :equipmentName, class:"form-control select2" %>
 			  	</div>
 
 				<div class="form-group">

@@ -15,32 +15,34 @@
 			</li>
 			<li>
 					<span><i class="fa fa-envelope"></i></span>
-					<span><%= link_to "IntLines", intlines_path %></span>
-			</li>
-			<li>
-					<span><i class="fa fa-telegram"></i></span>
-					<span><%= link_to "Lines", lines_path %></span>
+					<span><%= link_to "Lines", intlines_path %></span>
 			</li>
 			<li>
 					<span><i class="fa fa-bar-chart"></i></span>
 					<span><%= link_to "Events", events_path %></span>
 			</li>
 			<li>
-					<span><i class="fa fa-microchip"></i></span>
-					<span><%= link_to "Materials", materials_path %></span>
-			</li>
-			<li>
 					<span><i class="fa fa-list"></i></span>
-					<span><%= link_to "Intequipments", intequipments_path %></span>
+					<span><%= link_to "Equipments", intequipments_path %></span>
 			</li>
 			<li>
 					<span><i class="fa fa-credit-card-alt"></i></span>
 					<span><%= link_to "Calendar", issues_path %></span>
 			</li>
+		<%	if logged_in? && current_user.admin? %>
+			<li>
+					<span><i class="fa fa-telegram"></i></span>
+					<span><%= link_to "Lines list", lines_path %></span>
+			</li>
+			<li>
+					<span><i class="fa fa-microchip"></i></span>
+					<span><%= link_to "Materials", materials_path %></span>
+			</li>
 			<li>
 					<span><i class="fa fa-credit-card-alt"></i></span>
 					<span><%= link_to "Stats", href='#' %></span>
 			</li>
+		<% end %>
 		</ul>
 	</nav>
 </div>

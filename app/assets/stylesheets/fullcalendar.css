@@ -4,7 +4,10 @@
  * (c) 2017 Adam Shaw
  */
 
-
+ .timeColumn {
+ 	white-space: nowrap;
+ }
+ 
 .fc {
 	direction: ltr;
 	text-align: left;

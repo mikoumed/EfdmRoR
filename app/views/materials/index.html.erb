@@ -1,5 +1,7 @@
 <% provide(:title, "Materials") %>
-
+<div style="padding: 8px;width: 200px;float:right;z-index:1;">
+    <%= link_to 'New material', new_material_path, class: "btn btn-success btn-md"%>
+</div>
 <table id='async_datatable' class="table-striped">
   <thead>
     <tr>
@@ -15,14 +17,11 @@
         <td><%= material.name %></td>
         <td><%= material.team.name %></td>
         <td>
-            <%= link_to 'Show', material %> |
-            <%= link_to 'Edit', edit_material_path(material) %> |
-            <%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to '', edit_material_path(material), class:'fa fa-pencil-square-o' %> | 
+            <%= link_to '', material, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-trash-o' %></td>
         </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New material', new_material_path %>

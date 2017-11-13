@@ -5,10 +5,24 @@ module SessionsHelper
 		session[:user_id] = user.id
 	end
 
-# # Returns the team according to team_id.
-# 	def current_team
-# 		Team.find_by(id: params[:material][:team_id])
-# 	end
+# Confirms an admin user.
+    def admin_user
+        redirect_to(root_url) unless current_user.admin?
+    end
+
+# Returns the team of the current user
+	def current_team
+		Team.find_by(id: current_user.team_id)
+	end
+
+# Verify if correct User
+	def correct_user
+	    @user = User.find(params[:id])
+	    unless current_user?(@user)
+	        flash[:danger] = "You don't have rights"
+			redirect_back_or(root_url)
+	    end
+	end
 
 # Returns the current logged-in user (if any).
 	def current_user

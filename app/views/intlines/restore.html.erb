@@ -1,0 +1,32 @@
+<% provide(:title, 'Close Report Line') %>
+
+
+<div class="col-md-6">
+  <div class="box box-primary">
+
+		<%= form_for @intline, url: close_intline_path, html: { method: "patch" }  do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+		   <div class="box-body">
+					<div class="form-group">
+				  		<label>Time picker</label>
+                        <div class='input-group date', id='datetimepicker'>
+                            <%= f.text_field :closed_at, class:"form-control" %>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+
+				    <div class="form-group">
+					    <label>Note</label>
+					    <div class="box-body pad">
+						   <%= f.text_area :remOK, class:"textarea" %>
+					    </div>
+			  	    </div>
+			  	    <div class="box-footer">
+					    <button type="submit" class="btn btn-primary">Submit</button>
+			  	    </div>
+		   </div>
+		<%end%>
+	</div>
+</div>

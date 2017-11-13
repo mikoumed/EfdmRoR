@@ -1,13 +1,18 @@
-<% provide(:title, "IntEquipments") %>
-
-<%= content_tag :table, role: :datatable, data: { url: intequipments_path(format: :json)} do %>
+<% provide(:title, "Equipments") %>
+<div style="padding: 8px;width: 200px;float:right;z-index:1;">
+    <%= link_to 'Report Equipment', new_intequipment_path, class: "btn btn-success btn-md" %>
+</div>
+<%= content_tag :table, class:'table-striped', role: :datatable, data: { url: intequipments_path(format: :json)} do %>
   <thead>
     <tr>
       <th>Created</th>
       <th>Equipment Name</th>
       <th>Ticket Number</th>
       <th>Note HS</th>
-      <th>User</th>
+      <th>Added by</th>
+      <th>Closed by</th>
+      <th>Note OK</th>
+      <th>Closed</th>
       <th>Panel</th>
     </tr>
   </thead>
@@ -17,5 +22,3 @@
 <% end %>
 
 <br>
-
-<%= link_to 'New Line', new_intequipment_path %>

@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-	# before_action :logged_in_user, only: [:create, :destroy]
-	# before_action :correct_user, only: [:destroy, :edit, :update]
+	before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
+	before_action :correct_user, only: [:destroy, :edit, :update]
 
 	def index
 		respond_to do |format|
@@ -52,7 +52,10 @@ class EventsController < ApplicationController
 	end
 
 	def correct_user
-	 	@event = current_user.events.find_by(id: params[:id])
-		redirect_to root_url if @event.nil?
-   	end
+        @event = current_user.events.find_by(id: params[:id])
+        if @event.nil?
+            redirect_to root_path
+            flash[:danger] = "You don't have rights"
+        end
+	end
 end

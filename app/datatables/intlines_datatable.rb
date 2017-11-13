@@ -1,26 +1,29 @@
 class IntlinesDatatable < ApplicationDatatable
 delegate :edit_intline_path, to: :@view
+delegate :restore_intline_path, to: :@view
 	private
 
 	def data
 		intlines.map do |intline|
 			[].tap do |column|
-				column << intline.created_at.strftime("%d-%-m-%y-%-H:%M")
+				column << intline.created_at.strftime("[%d-%m-%y][%H:%M]")
 				column << intline.lineName
 				column << intline.ticketN
 				column << intline.remHS
 				column << intline.userHS
+				column << intline.userOK
+				column << intline.remOK
+				column << intline.closed_at.try(:strftime, "[%d-%m-%y][%H:%M]")
 
 				links = []
-				links << link_to('Edit', edit_intline_path(intline))
-				links << link_to('Destroy',intline, method: :delete, data: { confirm: 'Are you sure?' })
+				links << link_to('', restore_intline_path(intline), class:'fa fa-pencil-square-o')
 				column << links.join(' | ')
 			end
 		end
 	end
 
 	def users_data
-		Intline.where(team_id: @user.team_id)
+		Intline.where(team_id: @user.team_id, closed: true)
 	end
 
 	def count

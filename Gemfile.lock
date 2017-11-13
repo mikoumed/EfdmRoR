@@ -54,6 +54,8 @@ GEM
       railties (>= 3.1, < 6.0)
     bootstrap-will_paginate (1.0.0)
       will_paginate
+    bootstrap3-datetimepicker-rails (4.17.47)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (9.0.6)
     coderay (1.1.2)
@@ -239,6 +241,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.3.7)
   bootstrap-timepicker-rails-addon (~> 0.5.1)
   bootstrap-will_paginate (= 1.0.0)
+  bootstrap3-datetimepicker-rails
   byebug (= 9.0.6)
   coffee-rails (= 4.2.2)
   faker (= 1.7.3)

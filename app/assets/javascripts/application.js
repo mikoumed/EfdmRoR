@@ -20,6 +20,7 @@
 //= require daterangepicker
 //= require fullcalendar
 //= require bootstrap-timepicker
+//= require bootstrap-datetimepicker
 //= require select2
 //= require_tree .
 
@@ -29,22 +30,25 @@ $(document).on('turbolinks:load', function(){
 				processing :true,
 				serverSide :true,
         		// bJQueryUI :true,
+				// columnDefs :[
+				// 				{ className: "timeColumn", "targets": [ 0, 7, 8] }
+				// 			],
 				deferRender :true,
 				ajax:$(this).data('url')
 		})
-	})
+	});
 	$('.timepicker').timepicker();
 	$('.select2').select2();
+	$('#async_dataEvent').DataTable();
+	$('#async_dataIntline').DataTable();
+	$('#async_dataIntequipment').DataTable();
+	$('#async_datatable').DataTable();
+	$('#datetimepicker').datetimepicker(
+		{
+			format:'YYYY/MM/DD HH:mm',
+			widgetPositioning: { horizontal: 'left' }
+		});
 })
-$(document).on('turbolinks:load', function(){
-		$('#async_dataEvent').DataTable();
-		$('#async_dataIntline').DataTable();
-		$('#async_dataIntequipment').DataTable();
-});
-
-$(document).on('turbolinks:load', function(){
-    $('#async_datatable').DataTable();
-});
 
 // $(document).ready(function() {
 // 	$('.nav-trigger').click(function(e) {
@@ -53,8 +57,4 @@ $(document).on('turbolinks:load', function(){
 // 		$('.side-nav').toggleClass('visible');
 //
 // 	});
-// });
-// $(document).on('turbolinks:load',function(){
-// 	$('.timepicker').timepicker();
-// 	$('.select2').select2();
 // });

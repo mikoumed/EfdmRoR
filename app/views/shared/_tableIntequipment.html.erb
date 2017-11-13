@@ -1,11 +1,11 @@
 <table id='async_dataIntequipment' class="table-striped">
   <thead>
     <tr>
-      <th>Created</th>
+      <th>Opened</th>
       <th>Equipment Name</th>
       <th>Ticket Number</th>
       <th>Note HS</th>
-      <th>User</th>
+      <th>Added by</th>
       <th>Panel</th>
     </tr>
   </thead>
@@ -13,15 +13,15 @@
   <tbody>
       <% @intequipments.each do |intequipment| %>
         <tr>
-          <td><%= intequipment.created_at %></td>
+          <td><%= intequipment.created_at.strftime("[%d-%m-%y][%H:%M]") %></td>
           <td><%= intequipment.equipmentName %></td>
           <td><%= intequipment.ticketN %></td>
           <td><%= intequipment.remHS %></td>
           <td><%= intequipment.user.name %></td>
           <td>
-              <%= link_to 'Show', intequipment %>|
-              <%= link_to 'Edit', edit_intequipment_path(intequipment) %>|
-              <%= link_to 'Destroy', intequipment, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to('', edit_intequipment_path(intequipment), class:'fa fa-pencil-square-o') %> |
+              <%= link_to('', restore_intequipment_path(intequipment),class:'fa fa-check') %> |
+              <%= link_to('', intequipment, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-trash-o') %>
           </td>
         </tr>
       <% end %>

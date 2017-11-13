@@ -3,11 +3,25 @@ Rails.application.routes.draw do
     resources :users
     resources :materials
     resources :lines
-    resources :intequipments
+    resources :intequipments do
+        member do
+            patch 'close'
+            get 'restore'
+        end
+    end
     resources :teams
     resources :events
-    resources :intlines
+    resources :intlines do
+        member do
+            patch 'close'
+            get 'restore'
+        end
+    end
     resources :issues
+
+
+    # get 'intlines/:id/restore', to: 'intlines#restore', as: 'restore'
+    # get '/ok_line', to: 'intlines#restore'
 
     post '/newEvent', to: 'events#create'
 

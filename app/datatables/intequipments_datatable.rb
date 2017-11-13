@@ -1,28 +1,30 @@
 class IntequipmentsDatatable < ApplicationDatatable
 delegate :edit_intequipment_path, to: :@view
+delegate :restore_intequipment_path, to: :@view
 
 	private
 
 	def data
 		intequipments.map do |intequipment|
 			[].tap do |column|
-				column << intequipment.created_at.strftime("%d-%-m-%y-%-H:%M")
+				column << intequipment.created_at.strftime("[%d-%m-%y][%H:%M]")
 				column << intequipment.equipmentName
 				column << intequipment.ticketN
 				column << intequipment.remHS
 				column << intequipment.userHS
+				column << intequipment.userOK
+				column << intequipment.remOK
+				column << intequipment.closed_at.try(:strftime, "[%d-%m-%y][%H:%M]")
 
 				links = []
-				links << link_to('show', intequipment)
-				links << link_to('Edit', edit_intequipment_path(intequipment))
-				links << link_to('Destroy',intequipment, method: :delete, data: { confirm: 'Are you sure?' })
+				links << link_to('', restore_intequipment_path(intequipment), class:'fa fa-pencil-square-o')
 				column << links.join(' | ')
 			end
 		end
 	end
 
 	def users_data
-		Intequipment.where(team_id: @user.team_id)
+		Intequipment.where(team_id: @user.team_id, closed: true)
 	end
 
 	def count
