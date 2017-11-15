@@ -35,8 +35,9 @@ initialize_calendar = function(){
 			header: {
 				left: 'prev,next,today',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay,list'
+				right: 'month,agendaWeek,agendaDay,listYear'
 			},
+			
 			selectable: true,
 			selectHepler: true,
 			editable: true,

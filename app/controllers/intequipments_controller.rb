@@ -1,10 +1,10 @@
 class IntequipmentsController < ApplicationController
-  before_action :set_intequipment, only: [:edit, :update, :destroy]
+  before_action :set_intequipment, only: [:edit, :restore, :update, :close, :destroy]
   before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
-  # GET /intequipments
-  # GET /intequipments.json
+# ========================================================================================== #
+
   def index
       respond_to do |format|
       format.html
@@ -12,23 +12,18 @@ class IntequipmentsController < ApplicationController
     end
   end
 
-  # GET /intequipments/new
   def new
     @materials = current_team.materials
     @intequipment = current_user.intequipments.build
   end
 
-  # GET /intequipments/1/edit
   def edit
-      @intequipment = Intequipment.find_by(id: params[:id])
   end
 
   def restore
-      @intequipment = Intequipment.find_by(id: params[:id])
   end
 
   def close
-      @intequipment = Intequipment.find_by(id: params[:id])
       if @intequipment.update_attributes(intequipment_params)
           @intequipment.update_attributes(closed: true, userOK: current_user.name)
           flash[:success] = "Report equipment closed"
@@ -38,7 +33,6 @@ class IntequipmentsController < ApplicationController
       end
   end
 
-  # POST /intequipments
   def create
     @intequipment = current_user.intequipments.build(intequipment_params)
     @intequipment.update_attributes(userHS: current_user.name, team_id: current_user.team_id)
@@ -50,9 +44,7 @@ class IntequipmentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /intequipments/1
   def update
-      @intequipment = Intequipment.find_by(id: params[:id])
       if @intequipment.update_attributes(intequipment_params)
           flash[:success] = "Equipement Report updated"
           redirect_to home_path
@@ -61,17 +53,19 @@ class IntequipmentsController < ApplicationController
       end
   end
 
-  # DELETE /intequipments/1
   def destroy
       @intequipment.destroy
       flash[:success] = "Equipment Report deleted"
       redirect_to request.referrer || root_url
   end
 
+
+# ========================================================================================== #
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_intequipment
-      @intequipment = Intequipment.find(params[:id])
+        @intequipment = Intequipment.find_by(id: params[:id])
     end
 
     def correct_user
@@ -82,7 +76,6 @@ class IntequipmentsController < ApplicationController
         end
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def intequipment_params
       params.require(:intequipment).permit(:created_at, :ticketN, :equipmentName, :remHS, :remOK, :closed_at)
     end

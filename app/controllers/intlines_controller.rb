@@ -1,7 +1,9 @@
 class IntlinesController < ApplicationController
-before_action :set_intline, only: [:show, :edit, :update, :destroy]
+before_action :set_intline, only: [:edit, :restore, :update, :close, :destroy]
 before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
 before_action :correct_user, only: [:edit, :update, :destroy]
+
+# ========================================================================================== #
 
 def index
     respond_to do |format|
@@ -19,22 +21,13 @@ def new
     end
 end
 
-def destroy
-    @intline.destroy
-    flash[:success] = "Report Line deleted"
-    redirect_to request.referrer || root_url
-end
-
 def edit
-    @intline = Intline.find_by(id: params[:id])
 end
 
 def restore
-    @intline = Intline.find_by(id: params[:id])
 end
 
 def close
-    @intline = Intline.find_by(id: params[:id])
     if @intline.update_attributes(intline_params)
         @intline.update_attributes(closed: true, userOK: current_user.name)
         flash[:success] = "Report line closed"
@@ -56,7 +49,6 @@ def create
 end
 
 def update
-    @intline = Intline.find_by(id: params[:id])
     if @intline.update_attributes(intline_params)
         flash[:success] = "Report line updated"
         redirect_to home_path
@@ -65,10 +57,19 @@ def update
     end
 end
 
+
+def destroy
+    @intline.destroy
+    flash[:success] = "Report Line deleted"
+    redirect_to request.referrer || root_url
+end
+
+# ========================================================================================== #
+
 private
 
   def set_intline
-    @intline = Intline.find(params[:id])
+    @intline = Intline.find_by(params[:id])
   end
 
   def correct_user

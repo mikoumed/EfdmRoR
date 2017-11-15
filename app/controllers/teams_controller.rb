@@ -1,6 +1,8 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
+# ========================================================================================== #
+
   # GET /teams
   def index
     @teams = Team.all
@@ -39,6 +41,8 @@ class TeamsController < ApplicationController
   def destroy
 
   end
+
+# ========================================================================================== #
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -27,7 +27,7 @@
 $(document).on('turbolinks:load', function(){
 	$("[role='datatable']").each(function(){
 		$(this).DataTable({
-				processing :true,
+				// processing :true,
 				serverSide :true,
         		// bJQueryUI :true,
 				// columnDefs :[
