@@ -16,6 +16,49 @@ User.create!(name:  "mikou mohammed",
              team_id: 1,
              admin: true)
 
+50.times do |n|
+    name  = Faker::Name.name
+    email = "example-#{n+1}@railstutorial.org"
+    password = "password"
+    team_id = "1"
+    User.create!(name:  name,
+                email: email,
+                password:              password,
+                team_id: team_id,
+                password_confirmation: password)
+end
+50.times do |n|
+    name  = Faker::Name.name
+    email = "example-#{n+1}@railstuto.org"
+    password = "password"
+    team_id = "2"
+    User.create!(name:  name,
+                email: email,
+                password:              password,
+                team_id: team_id,
+                password_confirmation: password)
+end
+
+users = User.order(:created_at).take(1)
+
+50.times do
+    content = Faker::Lorem.sentence(5)
+    tid = '1'
+    users.each { |user| user.events.create!(content: content, team_id: tid) }
+end
+
+50.times do
+    tid = '1'
+    remHS = Faker::Lorem.sentence(12)
+    users.each { |user| user.intlines.create!(remHS: remHS, team_id: tid)}
+end
+
+50.times do
+    tid = '1'  
+    remHS = Faker::Lorem.sentence(12)
+    users.each { |user| user.intequipments.create!(remHS: remHS, team_id: tid)}
+end
+
 
 
 # users = User.order(:created_at).take(6)

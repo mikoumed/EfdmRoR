@@ -1,6 +1,6 @@
 class IntequipmentsController < ApplicationController
   before_action :set_intequipment, only: [:edit, :restore, :update, :close, :destroy]
-  before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
+  before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new, :index]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
 # ========================================================================================== #

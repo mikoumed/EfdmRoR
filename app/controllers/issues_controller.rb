@@ -1,6 +1,7 @@
 class IssuesController < ApplicationController
 
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new, :index]
   before_action :admin_user, only: [:new, :edit, :create, :update, :destroy]
 
   # ========================================================================================== #
@@ -11,6 +12,7 @@ class IssuesController < ApplicationController
            else
                @issues = current_team.issues
         end
+        @today_issues = @issues.where("end >=  ? and start <= ?", Time.now , Time.now.end_of_day).count
     end
 
 	def show
@@ -39,13 +41,15 @@ class IssuesController < ApplicationController
 
 # ========================================================================================== #
 
-private
+    private
 
-	def set_issue
+
+
+    def set_issue
         @issue = Issue.find(params[:id])
     end
 
     def issue_params
         params.require(:issue).permit(:title, :date_range, :start, :end, :color, :team_id)
-	end
+    end
 end

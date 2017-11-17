@@ -247,6 +247,7 @@ body {
 	}
 	.content {
 		margin-left: 70px;
+		padding-bottom: 30px;
 	}
 }
 /* ============================================================================ */
@@ -283,7 +284,6 @@ body {
 	.content {
 		margin-left: 200px;
 	}
-
 }
 /* ============================================================================ */
 
@@ -376,7 +376,8 @@ h2 {
 	padding-bottom:5px;
 }
 
-
+/* ============================================================================ */
+// Calendar
 .calendar {
 	width: 80%;
 	height: 100%;
@@ -389,12 +390,29 @@ h2 {
 .form-actions .btn .btn-danger{
 	margin-top: 5px;
 }
-
-
+/* ============================================================================ */
+// Edit close and destroy font awesome
 .fa-check{
 	color: green;
 }
 
 .fa-trash-o{
 	color: red;
+}
+
+.label {
+	margin-right: 5px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -7px;
+}
+
+.bg-red {
+	background-color: #dd4b39 !important;
+	color: #fff !important;
+}
+
+.pull-right {
+	float: right !important;
 }

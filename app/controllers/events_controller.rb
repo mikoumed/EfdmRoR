@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
-	before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new]
+
+	before_action :logged_in_user, only: [:edit, :update, :create, :destroy, :new, :index]
 	before_action :correct_user, only: [:destroy, :edit, :update]
 
 	def index

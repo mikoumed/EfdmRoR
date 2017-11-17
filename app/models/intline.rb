@@ -3,7 +3,7 @@ class Intline < ApplicationRecord
 
     belongs_to :user
     belongs_to :team
-
+    
     validates :remHS, presence: true
     validates :lineName, presence: true
 

@@ -12,8 +12,8 @@ delegate :edit_event_path, to: :@view
 
 
 				links = []
-				links << link_to('Edit', edit_event_path(event))
-				links << link_to('Destroy',event, method: :delete, data: { confirm: 'Are you sure?' })
+				links << link_to('', edit_event_path(event), class:'fa fa-1mx fa-pencil-square-o')
+				links << link_to('',event, method: :delete, data: { confirm: 'Are you sure?' },  class:'fa fa-1mx fa-trash-o')
 				column << links.join(' | ')
 
 			end

@@ -31,7 +31,7 @@ $(document).on('turbolinks:load', function(){
 				serverSide :true,
         		// bJQueryUI :true,
 				// columnDefs :[
-				// 				{ className: "timeColumn", "targets": [ 0, 7, 8] }
+				// 				{ className: "timeColumn", "targets": [ 0, 5,7, 8] }
 				// 			],
 				deferRender :true,
 				ajax:$(this).data('url')

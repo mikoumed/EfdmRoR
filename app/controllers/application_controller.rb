@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+
   private
 
   # Confirms a logged-in user.
@@ -12,7 +13,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def identify_team
-  #     @team = current_user.team_id
-  # end
 end
