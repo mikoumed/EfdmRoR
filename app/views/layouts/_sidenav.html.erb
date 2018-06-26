@@ -28,7 +28,9 @@
 			<li>
 					<span><i class="fa fa-credit-card-alt"></i></span>
 					<span><%= link_to "Calendar", issues_path %></span>
+					<% if (!@today_issues.nil? &&  @today_issues > 0) %>
 					<small class='label pull-right bg-red'><%= @today_issues %></small>
+					<% end %>
 			</li>
 		<%	if logged_in? && current_user.admin? %>
 			<li>

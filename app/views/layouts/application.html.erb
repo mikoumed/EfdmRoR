@@ -11,8 +11,11 @@
       <%= render 'layouts/header' %>
 
       <div class="main-content">
-           <%= render 'layouts/sidenav' %>
-           <div class="content">
+          <% if logged_in? %>
+            <%= render 'layouts/sidenav' %>
+          <% end %>
+
+           <div class="<%= logged_in? ? 'content' : '' %>">
                <div class="title">
                    <%= yield(:title) %>
                </div>
