@@ -376,6 +376,13 @@ h2 {
 	padding-bottom:5px;
 }
 
+.panelDataTable {
+	width: 100px;
+	background-color: inherit;
+	margin: auto;
+}
+
+
 /* ============================================================================ */
 // Calendar
 .calendar {
@@ -415,4 +422,8 @@ h2 {
 
 .pull-right {
 	float: right !important;
+}
+
+a:hover {
+	text-decoration: none !important;
 }

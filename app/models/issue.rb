@@ -1,6 +1,7 @@
 class Issue < ApplicationRecord
 
 	belongs_to :team
+	# validates :user_id, presence: true
 
   	attr_accessor :date_range
 

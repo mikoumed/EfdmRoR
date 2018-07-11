@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-      <%= f.collection_select :team_id, Team.all, :id, :name, {:prompt => ' Select Team'}%>
+      <%= f.collection_select :team_id, Team.all, :id, :name, {:prompt => ' Select Team'}, {:class => 'selectpicker'}%>
   </div>
 
   <div class="actions">

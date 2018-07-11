@@ -22,19 +22,20 @@
 //= require bootstrap-timepicker
 //= require bootstrap-datetimepicker
 //= require select2
+//= require bootstrap-select
 //= require_tree .
 
 $(document).on('turbolinks:load', function(){
 	$("[role='datatable']").each(function(){
 		$(this).DataTable({
-				// processing :true,
-				serverSide :true,
-        		// bJQueryUI :true,
-				// columnDefs :[
-				// 				{ className: "timeColumn", "targets": [ 0, 5,7, 8] }
-				// 			],
-				deferRender :true,
-				ajax:$(this).data('url')
+			// processing :true,
+			serverSide :true,
+			// bJQueryUI :true,
+			// columnDefs :[
+			// 				{ className: "timeColumn", "targets": [ 0, 5,7, 8] }
+			// 			],
+			deferRender :true,
+			ajax:$(this).data('url')
 		})
 	});
 	$('.timepicker').timepicker();
@@ -48,13 +49,21 @@ $(document).on('turbolinks:load', function(){
 			format:'YYYY/MM/DD HH:mm',
 			widgetPositioning: { horizontal: 'left' }
 		});
-})
+		$('.datetimepicker1').datetimepicker(
+			{
+				format:'YYYY/MM/DD',
+				widgetPositioning: { horizontal: 'left' }
+			});
 
-// $(document).ready(function() {
-// 	$('.nav-trigger').click(function(e) {
-// 		console.log('js working');
-// 		 e.preventDefault();
-// 		$('.side-nav').toggleClass('visible');
-//
-// 	});
-// });
+			$('.selectpicker').selectpicker({
+				style: 'btn-default',
+				size: false,
+				noneSelectedText: ''
+			});
+			$('.nav-trigger').click(function(e) {
+				console.log('js working');
+				e.preventDefault();
+				$('.side-nav').toggleClass('visible');
+
+			});
+		})

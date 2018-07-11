@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111091915) do
+ActiveRecord::Schema.define(version: 20180703093701) do
+
+  create_table "checklists", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "content",    limit: 65535
@@ -109,6 +114,19 @@ ActiveRecord::Schema.define(version: 20171111091915) do
     t.index ["team_id"], name: "index_users_on_team_id", using: :btree
   end
 
+  create_table "working_teams", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "teamName"
+    t.string   "date"
+    t.string   "session"
+    t.string   "supervisor"
+    t.text     "esaCom",     limit: 65535
+    t.text     "esaRadar",   limit: 65535
+    t.integer  "team_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["team_id"], name: "index_working_teams_on_team_id", using: :btree
+  end
+
   add_foreign_key "events", "teams"
   add_foreign_key "events", "users"
   add_foreign_key "intequipments", "teams"
@@ -119,4 +137,5 @@ ActiveRecord::Schema.define(version: 20171111091915) do
   add_foreign_key "lines", "teams"
   add_foreign_key "materials", "teams"
   add_foreign_key "users", "teams"
+  add_foreign_key "working_teams", "teams"
 end

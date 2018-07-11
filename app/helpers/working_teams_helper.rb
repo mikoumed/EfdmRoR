@@ -1,0 +1,2 @@
+module WorkingTeamsHelper
+end

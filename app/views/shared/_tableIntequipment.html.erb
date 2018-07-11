@@ -18,9 +18,9 @@
           <td><%= intequipment.ticketN %></td>
           <td><%= intequipment.remHS %></td>
           <td><%= intequipment.user.name %></td>
-          <td>
-              <%= link_to('', edit_intequipment_path(intequipment), class:'fa fa-1mx fa-pencil-square-o') %> |
-              <%= link_to('', restore_intequipment_path(intequipment),class:'fa fa-1mx fa-check') %> |
+          <td class="panelDataTable">
+              <%= link_to('', restore_intequipment_path(intequipment),class:'fa fa-1mx fa-check') %>
+              <%= link_to('', edit_intequipment_path(intequipment), class:'fa fa-1mx fa-pencil-square-o') %>
               <%= link_to('', intequipment, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-1mx fa-trash-o') %>
           </td>
         </tr>

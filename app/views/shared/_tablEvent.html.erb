@@ -16,8 +16,8 @@
           <td><%= event.object %></td>
           <td><%= event.user.name %></td>
           <td><%= event.content %></td>
-          <td>
-              <%= link_to '', edit_event_path(event), class:'fa fa-1mx fa-pencil-square-o' %> |
+          <td class="panelDataTable">
+              <%= link_to '', edit_event_path(event), class:'fa fa-1mx fa-pencil-square-o' %>
               <%= link_to '', event, method: :delete, data: { confirm: 'Are you sure?' }, class:'fa fa-1mx fa-trash-o' %>
           </td>
         </tr>

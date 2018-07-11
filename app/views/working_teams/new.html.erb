@@ -1,0 +1,67 @@
+<% provide(:title, 'WorkingTeam') %>
+
+<%= form_for @working_team do |f| %>
+
+<%= render 'shared/error_messages', object: f.object %>
+
+<div class="row bs-callout bs-callout-primary">
+  <h4>Information Equipe</h4>
+  	<div class="form-group col-md-2">
+	   <label>Equipe</label>
+	   <%= f.select :teamName, ['A','B','C','D','E'],{}, {:class => 'form-control selectpicker', :title => title=' '} %>
+	   <!-- <select title=" " class="form-control selectpicker">
+		 <option>A</option>
+		 <option>B</option>
+		 <option>C</option>
+		 <option>D</option>
+		 <option>E</option>
+	   </select> -->
+ 	</div>
+	<div class="form-group col-md-2">
+		<label>Date</label>
+		<div class="input-group">
+			<%= f.text_field :date, :class => 'form-control date datetimepicker1' %>
+			<!-- <input type="text" class="form-control date" id="datetimepicker1"></input> -->
+			<div class="input-group-addon">
+				<i class="fa fa-clock-o"></i>
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-md-2">
+		<label>Vacation</label>
+		<%= f.select :session, ['14H-21H','08H-14H','21H-08H'],{}, {:class => 'form-control selectpicker', :title => title=' '} %>
+		<!-- <select title=" " class="form-control selectpicker">
+ 		 <option>14H-21H</option>
+ 		 <option>08H-14H</option>
+ 		 <option>21H-08H</option>
+	 	</select> -->
+	</div>
+	<div class="form-group col-md-3">
+		<label>Superviseur</label>
+		<%= f.select :supervisor, ['A','B','C','D','E'],{}, {:class => 'form-control selectpicker', :title => title=' '} %>
+		<!-- <select title=" " class="form-control selectpicker">
+			<option>A</option>
+			<option>B</option>
+			<option>C</option>
+			<option>D</option>
+			<option>E</option>
+	 	</select> -->
+	</div>
+	<div class="form-group col-md-3">
+		<label>ESA</label>
+		<%= f.select :esaRadar, @users.all.map(&:name),{include_hidden: false}, { :multiple => true , :class => 'form-control selectpicker'} %>
+		<!-- <select title=" " class="form-control selectpicker" multiple>
+		    <option>A</option>
+			<option>B</option>
+			<option>C</option>
+			<option>D</option>
+			<option>E</option>
+		</select> -->
+	</div>
+</div>
+
+<div class="row">
+	<%= f.submit "Add", class: "btn btn-primary btn-block btn-flat" %>
+</div>
+
+<% end %>

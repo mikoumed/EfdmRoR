@@ -54,7 +54,7 @@ end
 end
 
 50.times do
-    tid = '1'  
+    tid = '1'
     remHS = Faker::Lorem.sentence(12)
     users.each { |user| user.intequipments.create!(remHS: remHS, team_id: tid)}
 end

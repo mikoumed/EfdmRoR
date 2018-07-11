@@ -1,0 +1,567 @@
+<div class="row bs-callout bs-callout-primary">
+  <h4>Information Equipe</h4>
+  	<div class="form-group col-md-2">
+	   <label>Equipe</label>
+
+	   <select title=" " class="form-control selectpicker">
+		 <option>A</option>
+		 <option>B</option>
+		 <option>C</option>
+		 <option>D</option>
+		 <option>E</option>
+	   </select>
+ 	</div>
+	<div class="form-group col-md-2">
+		<label>Date</label>
+		<div class="input-group">
+			<input type="text" class="form-control date" id="datetimepicker1"></input>
+			<div class="input-group-addon">
+				<i class="fa fa-clock-o"></i>
+			</div>
+		</div>
+	</div>
+	<div class="form-group col-md-2">
+		<label>Vacation</label>
+		<select title=" " class="form-control selectpicker">
+ 		 <option>14H-21H</option>
+ 		 <option>08H-14H</option>
+ 		 <option>21H-08H</option>
+	 	</select>
+	</div>
+	<div class="form-group col-md-3">
+		<label>Superviseur</label>
+		<select title=" " class="form-control selectpicker">
+			<option>A</option>
+			<option>B</option>
+			<option>C</option>
+			<option>D</option>
+			<option>E</option>
+	 	</select>
+	</div>
+	<div class="form-group col-md-3">
+		<label>ESA</label>
+        
+		<select title=" " class="form-control selectpicker" multiple>
+		    <option>A</option>
+			<option>B</option>
+			<option>C</option>
+			<option>D</option>
+			<option>E</option>
+		</select>
+	</div>
+</div>
+
+
+
+<!-- <div class="row bs-callout bs-callout-primary">
+  <h4>Sectorisation</h4>
+  <div class="form-group col-md-2">
+      <label>OCN</label>
+      <input class="form-control" type="text"></input>
+  </div>
+  <div class="form-group col-md-2">
+      <label>OCS</label>
+      <input class="form-control" type="text"></input>
+  </div>
+  <div class="form-group col-md-2">
+      <label>WN</label>
+      <input class="form-control" type="text"></input>
+  </div>
+  <div class="form-group col-md-2">
+      <label>WS</label>
+      <input class="form-control" type="text"></input>
+  </div>
+  <div class="form-group col-md-2">
+      <label>OC</label>
+      <input class="form-control" type="text"></input>
+  </div>
+  <div class="form-group col-md-2">
+      <label>WW</label>
+      <input class="form-control" type="text"></input>
+  </div>
+</div>
+
+<div class="row bs-callout bs-callout-primary">
+  <h4>Système de supervision</h4>
+  <div class="form-group col-md-4">
+      <label>CMD</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">CMD1</th>
+                  <td><input type="radio" name="optradioCMD1"></td>
+                  <td><input type="radio" name="optradioCMD1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">CMD2</th>
+                  <td><input type="radio" name="optradioCMD2"></td>
+                  <td><input type="radio" name="optradioCMD2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-4">
+      <label>SDD</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">SDD24</th>
+                  <td><input type="radio" name="optradioSDD24"></td>
+                  <td><input type="radio" name="optradioSDD24"></td>
+              </tr>
+              <tr>
+                  <th scope="row">SDD25</th>
+                  <td><input type="radio" name="optradioSDD25"></td>
+                  <td><input type="radio" name="optradioSDD25"></td>
+              </tr>
+              <tr>
+                  <th scope="row">SDD26</th>
+                  <td><input type="radio" name="optradioSDD26"></td>
+                  <td><input type="radio" name="optradioSDD26"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-4">
+      <label>Modes RADAR</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">Integrated</th>
+                  <td><input type="radio" name="optradioSDD24"></td>
+                  <td><input type="radio" name="optradioSDD24"></td>
+              </tr>
+              <tr>
+                  <th scope="row">Mono-RADAR</th>
+                  <td><input type="radio" name="optradioSDD25"></td>
+                  <td><input type="radio" name="optradioSDD25"></td>
+              </tr>
+              <tr>
+                  <th scope="row">BYPASS</th>
+                  <td><input type="radio" name="optradioSDD26"></td>
+                  <td><input type="radio" name="optradioSDD26"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="row bs-callout bs-callout-primary">
+  <h4>Liaisons de données</h4>
+  <div class="form-group col-md-4">
+      <label>AFTN/AMHS</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">FPF/FFP</th>
+                  <td><input type="radio" name="optradioAFTN1"></td>
+                  <td><input type="radio" name="optradioAFTN1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">RTA/RTB</th>
+                  <td><input type="radio" name="optradioAFTN2"></td>
+                  <td><input type="radio" name="optradioAFTN2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div style="margin-bottom:0px;" class="form-group col-md-4">
+      <label>FMTP/OLDI</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">GMMN</th>
+                  <td><input type="radio" name="optradioGMMN"></td>
+                  <td><input type="radio" name="optradioGMMN"></td>
+              </tr>
+              <tr>
+                  <th scope="row">GCCC</th>
+                  <td><input type="radio" name="optradioGCCC"></td>
+                  <td><input type="radio" name="optradioGCCC"></td>
+              </tr>
+              <tr>
+                  <th scope="row">LECS</th>
+                  <td><input type="radio" name="optradioLECS"></td>
+                  <td><input type="radio" name="optradioLECS"></td>
+              </tr>
+              <tr>
+                  <th scope="row">LPPC</th>
+                  <td><input type="radio" name="optradioLPPC"></td>
+                  <td><input type="radio" name="optradioLPPC"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-4">
+      <label>ADS-C/CPDLC</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">ARINC1</th>
+                  <td><input type="radio" name="optradioARINC1"></td>
+                  <td><input type="radio" name="optradioARINC1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">ARINC2</th>
+                  <td><input type="radio" name="optradioARINC2"></td>
+                  <td><input type="radio" name="optradioARINC2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="row bs-callout bs-callout-primary">
+  <h4>Serveurs</h4>
+  <div class="form-group col-md-2">
+      <label>FDP</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">FDP1</th>
+                  <td><input type="radio" name="optradioFDP1"></td>
+                  <td><input type="radio" name="optradioFDP1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">FDP2</th>
+                  <td><input type="radio" name="optradioFDP2"></td>
+                  <td><input type="radio" name="optradioFDP2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-2">
+      <label>SDP</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">SDP1</th>
+                  <td><input type="radio" name="optradioSDP1"></td>
+                  <td><input type="radio" name="optradioSDP1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">SDP2</th>
+                  <td><input type="radio" name="optradioSDP2"></td>
+                  <td><input type="radio" name="optradioSDP2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-2">
+      <label>RDCU</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">RDCU1</th>
+                  <td><input type="radio" name="optradioRDCU1"></td>
+                  <td><input type="radio" name="optradioRDCU1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">RDCU2</th>
+                  <td><input type="radio" name="optradioRDCU2"></td>
+                  <td><input type="radio" name="optradioRDCU2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-2">
+      <label>NTP</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">NTP1</th>
+                  <td><input type="radio" name="optradioNTP1"></td>
+                  <td><input type="radio" name="optradioNTP1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">NTP2</th>
+                  <td><input type="radio" name="optradioNTP2"></td>
+                  <td><input type="radio" name="optradioNTP2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-2">
+      <label>DLS</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">DLS1</th>
+                  <td><input type="radio" name="optradioDLS1"></td>
+                  <td><input type="radio" name="optradioDLS1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">DLS2</th>
+                  <td><input type="radio" name="optradioDLS2"></td>
+                  <td><input type="radio" name="optradioDLS2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-2">
+      <label>DRF</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">DRF1</th>
+                  <td><input type="radio" name="optradioDRF1"></td>
+                  <td><input type="radio" name="optradioDRF1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">DRF2</th>
+                  <td><input type="radio" name="optradioDRF2"></td>
+                  <td><input type="radio" name="optradioDRF2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+
+
+<div class="row bs-callout bs-callout-primary">
+  <h4>Alimentation et Enregistrement</h4>
+  <div class="form-group col-md-4">
+      <label>Enregistrement</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">DRF1</th>
+              <th scope="col">DRF2</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">% DISK</th>
+                  <td><input class="form-control" name="optradioDisk"></td>
+                  <td><input class="form-control" name="optradioDisk"></td>
+              </tr>
+              <tr>
+                  <th scope="row">N.Fichiers</th>
+                  <td><input class="form-control col-xs-4"  name="optradioFichier"></td>
+                  <td><input class="form-control col-xs-4"  name="optradioFichier"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-5">
+      <label>Alimentation</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">UPS1</th>
+                  <td><input  type="radio" name="optradioUPS1"></td>
+                  <td><input  type="radio" name="optradioUPS1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">UPS2</th>
+                  <td><input  type="radio" name="optradioUPS2"></td>
+                  <td><input  type="radio"  name="optradioUPS2"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="row bs-callout bs-callout-primary">
+  <h4>Source de données RADAR et ADS-B</h4>
+  <div class="form-group col-md-5">
+      <label>RADARs</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">AGADIR</th>
+                  <td><input  type="radio" name="optradioRAGA"></td>
+                  <td><input  type="radio" name="optradioRAGA"></td>
+              </tr>
+              <tr>
+                  <th scope="row">CASA1</th>
+                  <td><input  type="radio" name="optradioRCASA1"></td>
+                  <td><input  type="radio"  name="optradioRCASA1"></td>
+              </tr>
+              <tr>
+                  <th scope="row">CASA2</th>
+                  <td><input  type="radio" name="optradioRCASA2"></td>
+                  <td><input  type="radio"  name="optradioRCASA2"></td>
+              </tr>
+              <tr>
+                  <th scope="row">TANGER</th>
+                  <td><input  type="radio" name="optradioRTNG"></td>
+                  <td><input  type="radio"  name="optradioRTNG"></td>
+              </tr>
+              <tr>
+                  <th scope="row">ELJADIDA</th>
+                  <td><input  type="radio" name="optradioRJAD"></td>
+                  <td><input  type="radio"  name="optradioRJAD"></td>
+              </tr>
+              <tr>
+                  <th scope="row">SAFI</th>
+                  <td><input  type="radio" name="optradioRSAFI"></td>
+                  <td><input  type="radio"  name="optradioRSAFI"></td>
+              </tr>
+              <tr>
+                  <th scope="row">IFRANE</th>
+                  <td><input  type="radio" name="optradioRIFR"></td>
+                  <td><input  type="radio"  name="optradioRIFR"></td>
+              </tr>
+              <tr>
+                  <th scope="row">TANTAN</th>
+                  <td><input  type="radio" name="optradioRTAN"></td>
+                  <td><input  type="radio"  name="optradioRTAN"></td>
+              </tr>
+              <tr>
+                  <th scope="row">TANTAN-IP</th>
+                  <td><input  type="radio" name="optradioRTAN2"></td>
+                  <td><input  type="radio"  name="optradioRTAN2"></td>
+              </tr>
+              <tr>
+                  <th scope="row">MARRACKECK</th>
+                  <td><input  type="radio" name="optradioRRAK"></td>
+                  <td><input  type="radio"  name="optradioRRAK"></td>
+              </tr>
+              <tr>
+                  <th scope="row">PORTOSANTO</th>
+                  <td><input  type="radio" name="optradioRPS"></td>
+                  <td><input  type="radio"  name="optradioRPS"></td>
+              </tr>
+              <tr>
+                  <th scope="row">FOIA</th>
+                  <td><input  type="radio" name="optradioRFOIA"></td>
+                  <td><input  type="radio"  name="optradioRFOIA"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div class="form-group col-md-5">
+      <label>ADC-B</label>
+      <table class="table table-striped">
+          <thead>
+              <th scope="col"></th>
+              <th scope="col">OK</th>
+              <th scope="col">NOK</th>
+          </thead>
+          <tbody>
+              <tr>
+                  <th scope="row">AGADIR</th>
+                  <td><input  type="radio" name="optradioAAGA"></td>
+                  <td><input  type="radio" name="optradioAAGA"></td>
+              </tr>
+              <tr>
+                  <th scope="row">DAKHLA</th>
+                  <td><input  type="radio" name="optradioADAK"></td>
+                  <td><input  type="radio"  name="optradioADAK"></td>
+              </tr>
+              <tr>
+                  <th scope="row">LAAYOUNE</th>
+                  <td><input  type="radio" name="optradioALAY"></td>
+                  <td><input  type="radio"  name="optradioALAY"></td>
+              </tr>
+              <tr>
+                  <th scope="row">SMARA</th>
+                  <td><input  type="radio" name="optradioASMA"></td>
+                  <td><input  type="radio"  name="optradioASMA"></td>
+              </tr>
+              <tr>
+                  <th scope="row">FES</th>
+                  <td><input  type="radio" name="optradioAFES"></td>
+                  <td><input  type="radio"  name="optradioAFES"></td>
+              </tr>
+              <tr>
+                  <th scope="row">OUJDA</th>
+                  <td><input  type="radio" name="optradioAOUJ"></td>
+                  <td><input  type="radio"  name="optradioAOUJ"></td>
+              </tr>
+              <tr>
+                  <th scope="row">MARRACKECH</th>
+                  <td><input  type="radio" name="optradioARAK"></td>
+                  <td><input  type="radio"  name="optradioARAK"></td>
+              </tr>
+              <tr>
+                  <th scope="row">TANGER</th>
+                  <td><input  type="radio" name="optradioATNG"></td>
+                  <td><input  type="radio"  name="optradioATNG"></td>
+              </tr>
+              <tr>
+                  <th scope="row">ZSNT</th>
+                  <td><input  type="radio" name="optradioASNT"></td>
+                  <td><input  type="radio"  name="optradioASNT"></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<div class="row bs-callout bs-callout-primary">
+    <div class="form-group col-md-6">
+        <label>Observations</label>
+        <textarea style="height: 100px" class="form-control" type="text"></textarea>
+    </div>
+</div> -->

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :users
     resources :materials
     resources :lines
+    resources :checklists
+    resources :working_teams
     resources :intequipments do
         member do
             patch 'close'

@@ -4,6 +4,7 @@ class User < ApplicationRecord
     has_many :events
     has_many :intlines
     has_many :intequipments
+    has_many :checklists
 
     validates :team_id, presence: true
     before_save { email.downcase! }
